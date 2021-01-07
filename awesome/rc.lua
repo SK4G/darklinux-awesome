@@ -1112,10 +1112,10 @@ awful.rules.rules = {
           properties = { maximized = true } },
 
     { rule = { class = "VirtualBox Manager" },
-          properties = { maximized = true } },
+          properties = { maximized = false } },
 
     { rule = { class = "VirtualBox Machine" },
-          properties = { maximized = true } },
+          properties = { maximized = false} },
 
     { rule = { class = "Vivaldi-stable" },
           properties = { maximized = false, floating = false } },
