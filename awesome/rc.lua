@@ -323,8 +323,8 @@ globalkeys = my_table.join(
     -- super + ... function keys
     awful.key({ modkey }, "F1", function () awful.util.spawn( "kodi" ) end,
         {description = "kodi" ,group = "function keys" }),
-    awful.key({ modkey }, "F2", function () awful.util.spawn( "chromium --app=http://yoursports.stream/live?v=espn" ) end,
-        {description = "ESPN", group = "function keys"}),
+    awful.key({ modkey }, "F2", function () awful.util.spawn( "chromium --app=https://www.netflix.com/browse" ) end,
+        {description = "Netflix", group = "function keys"}),
     awful.key({ modkey }, "F3", function () awful.util.spawn( "plexmediaplayer" ) end,
         {description = "plex" , group = "function keys" }),
     awful.key({ modkey }, "F4", function () awful.util.spawn( "xfce4-appfinder" ) end,
@@ -349,10 +349,14 @@ globalkeys = my_table.join(
     -- super + ...
     awful.key({ modkey }, "c", function () awful.util.spawn( "code" ) end,
         {description = "vs code", group = "super"}),
-    awful.key({ modkey }, "e", function () awful.util.spawn( editorgui ) end,
-        {description = "run gui editor", group = "super"}),
-    --awful.key({ modkey }, "h", function () awful.util.spawn( "urxvt -T 'htop task manager' -e htop" ) end,
-        --{description = "htop", group = "super"}),
+    awful.key({ modkey }, "e", function () awful.util.spawn( "chromium --app=http://yoursports.stream/live?v=espn" ) end,
+        {description = "ESPN", group = "super"}),
+    awful.key({ modkey }, "n", function () awful.util.spawn( "chromium --app=https://www.netflix.com/browse" ) end,
+        {description = "Netflix", group = "super"}),
+    --awful.key({ modkey }, "e", function () awful.util.spawn( editorgui ) end,
+        --{description = "run gui editor", group = "super"}),
+    awful.key({ modkey }, "h", function () awful.util.spawn( "urxvt -T 'htop task manager' -e htop" ) end,
+        {description = "htop", group = "super"}),
     awful.key({ modkey }, "r", function () awful.util.spawn( "rofi-theme-selector" ) end,
         {description = "rofi theme selector", group = "super"}),
     --awful.key({ modkey }, "t", function () awful.util.spawn( terminal ) end,
@@ -1269,9 +1273,9 @@ awful.spawn.with_shell("nm-applet")
 awful.spawn.with_shell("pamac-tray")
 awful.spawn.with_shell("blueberry-tray")
 awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
-awful.spawn.with_shell("numlockx on")
+--awful.spawn.with_shell("numlockx on")
 awful.spawn.with_shell("conky -c $HOME/.config/awesome/system-overview")
-awful.spawn.with_shell("feh --bg-fill $HOME/.config/awesome/themes/copland/starwarsblue.jpg &")
+--awful.spawn.with_shell("feh --bg-fill $HOME/.config/awesome/themes/copland/starwarsblue.jpg &")
 --awful.spawn.with_shell("xfce4-power-manager")
 --awful.spawn.with_shell("nitrogen --restore")
 --awful.spawn.with_shell("")
@@ -1283,9 +1287,6 @@ awful.spawn.with_shell("feh --bg-fill $HOME/.config/awesome/themes/copland/starw
 --awful.spawn("stremio")
 --awful.spawn("plexmediaplayer")
 --awful.spawn("retroarch")
---awful.spawn("chromium --app=http://yoursports.stream/live?v=espn")
---awful.spawn("chromium --app=http://yoursports.stream/live?v=espn")
---awful.spawn("chromium --app=http://yoursports.stream/live?v=espn")
 --awful.spawn("chromium --app=http://yoursports.stream/live?v=espn")
 --awful.spawn("mpv")
 --awful.spawn("")
