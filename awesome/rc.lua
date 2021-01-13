@@ -926,6 +926,9 @@ awful.rules.rules = {
     { rule_any = { type = { "dialog", "normal" } },
       properties = { titlebars_enabled = false  } },
 
+    { rule = { class = "Thunar" },
+      properties = { border_width = 0, border_color = transparent, opacity = 0.9 } },
+      
     -- Set applications to always map on the tag 1 on any screen.
     -- find class or role via xprop command
     --{ rule = { class = browser2 },
