@@ -116,7 +116,7 @@ local modkey1      = "Control"
 -- personal variables 
 --change these variables if you want
 -- -no-default-browser-check
-local browser1          = "chromium" 
+local browser1          = "google-chrome-stable" 
 local browser2          = "vivaldi-stable"
 local browser3          = "firefox"
 local editor            = os.getenv("EDITOR") or "nano"
@@ -323,7 +323,7 @@ globalkeys = my_table.join(
     -- super + ... function keys
     awful.key({ modkey }, "F1", function () awful.util.spawn( "kodi" ) end,
         {description = "kodi" ,group = "function keys" }),
-    awful.key({ modkey }, "F2", function () awful.util.spawn( "chromium --app=https://www.netflix.com/browse" ) end,
+    awful.key({ modkey }, "F2", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
         {description = "Netflix", group = "function keys"}),
     awful.key({ modkey }, "F3", function () awful.util.spawn( "plexmediaplayer" ) end,
         {description = "plex" , group = "function keys" }),
@@ -349,9 +349,9 @@ globalkeys = my_table.join(
     -- super + ...
     awful.key({ modkey }, "c", function () awful.util.spawn( "code" ) end,
         {description = "vs code", group = "super"}),
-    awful.key({ modkey }, "e", function () awful.util.spawn( "chromium --app=http://yoursports.stream/live?v=espn" ) end,
+    awful.key({ modkey }, "e", function () awful.util.spawn( "google-chrome-stable --app=http://yoursports.stream/live?v=espn" ) end,
         {description = "ESPN", group = "super"}),
-    awful.key({ modkey }, "n", function () awful.util.spawn( "chromium --app=https://www.netflix.com/browse" ) end,
+    awful.key({ modkey }, "n", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
         {description = "Netflix", group = "super"}),
     --awful.key({ modkey }, "e", function () awful.util.spawn( editorgui ) end,
         --{description = "run gui editor", group = "super"}),
@@ -940,7 +940,7 @@ awful.rules.rules = {
     --{ rule = { class = "Vivaldi-stable" },
         --properties = { tag = awful.util.tagnames[1], switchtotag = true } },
 
-    --{ rule = { class = "Chromium" },
+    --{ rule = { class = "google-chrome" },
       --properties = { tag = awful.util.tagnames[1], switchtotag = true  } },
 
     --{ rule = { class = "Opera" },
@@ -1000,7 +1000,7 @@ awful.rules.rules = {
     --{ rule = { class = "Vivaldi-stable" },
         --properties = { screen = 1, tag = awful.util.tagnames[1], switchtotag = true } },
 
-    --{ rule = { class = "Chromium" },
+    --{ rule = { class = "google-chrome" },
       --properties = { screen = 1, tag = awful.util.tagnames[1], switchtotag = true  } },
 
     --{ rule = { class = "Opera" },
@@ -1049,7 +1049,7 @@ awful.rules.rules = {
     --{ rule = { class = "Vivaldi-stable" },
         --properties = { screen = 2, tag = awful.util.tagnames[1], switchtotag = true } },
 
-    --{ rule = { class = "Chromium" },
+    --{ rule = { class = "google-chrome" },
       --properties = { screen = 2, tag = awful.util.tagnames[1], switchtotag = true  } },
 
     --{ rule = { class = "Opera" },
@@ -1290,6 +1290,6 @@ awful.spawn.with_shell("conky -c $HOME/.config/awesome/system-overview")
 --awful.spawn("stremio")
 --awful.spawn("plexmediaplayer")
 --awful.spawn("retroarch")
---awful.spawn("chromium --app=http://yoursports.stream/live?v=espn")
+--awful.spawn("google-chrome-stable --app=http://yoursports.stream/live?v=espn")
 --awful.spawn("mpv")
 --awful.spawn("")
