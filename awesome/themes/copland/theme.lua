@@ -95,7 +95,7 @@ local green  = "#8FEB8F"
 
 -- Textclock
 --os.setlocale(os.getenv("LANG")) -- to localize the clock
-local mytextclock = wibox.widget.textclock("<span font='Terminus 5'> </span>%H:%M ")
+local mytextclock = wibox.widget.textclock("<span font='Terminus 5'> </span>%a %b %d, %l:%M%P ")        --change to %H:%M for 24 hr clock
 mytextclock.font = theme.font
 
 -- Calendar

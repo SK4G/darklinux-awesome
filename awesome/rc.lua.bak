@@ -9,8 +9,6 @@
 
      lain : https://github.com/lcpz/lain
 
-     use xprop to get window title and class
-
 --]]
 
 -- {{{ Required libraries
@@ -98,9 +96,9 @@ awful.spawn.with_shell(
 -- {{{ Variable definitions
 
 local themes = {
-    "copland",		        -- 1
-    "holo",      		    -- 2
-    "multicolor",	    	-- 3
+    "copland",		-- 1
+    "holo",      		-- 2
+    "multicolor",	 	-- 3
     "powerarrow-blue",		-- 4
 }
 
@@ -118,14 +116,14 @@ local modkey1      = "Control"
 -- personal variables 
 --change these variables if you want
 -- -no-default-browser-check
-local browser1          = "google-chrome-stable" 
+local browser1          = "chromium" 
 local browser2          = "vivaldi-stable"
 local browser3          = "firefox"
 local editor            = os.getenv("EDITOR") or "nano"
 local editorgui         = "code"
 local filemanager       = "thunar"
 local mailclient        = "evolution"
-local mediaplayer       = "vlc"
+local mediaplayer       = "mpv"
 local terminal          = "urxvt"
 local virtualmachine    = "virtualbox"
 
@@ -140,11 +138,11 @@ awful.util.tagnames = {  "➊", "➋", "➌", "➍", "➎", "➏", "➐", "➑",
 awful.layout.suit.tile.left.mirror = true
 awful.layout.layouts = {
     awful.layout.suit.fair,
-    awful.layout.suit.tile,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.floating,
+    --awful.layout.suit.fair.horizontal,
+    --awful.layout.suit.tile,
     --awful.layout.suit.max.fullscreen,
-    --awful.layout.suit.max,
+    awful.layout.suit.max,
+    awful.layout.suit.floating,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
@@ -278,7 +276,7 @@ screen.connect_signal("arrange", function (s)
     local only_one = #s.tiled_clients == 1
     for _, c in pairs(s.clients) do
         if only_one and not c.floating or c.maximized then
-            c.border_width = 0
+            c.border_width = 2
         else
             c.border_width = beautiful.border_width
         end
@@ -323,50 +321,42 @@ globalkeys = my_table.join(
 
 
     -- super + ... function keys
-    awful.key({ modkey }, "F1", function () awful.util.spawn( "kodi" ) end,
-        {description = "kodi" ,group = "function keys" }),
-    awful.key({ modkey }, "F2", function () awful.util.spawn( "plexmediaplayer" ) end,
+    awful.key({ modkey }, "F1", function () awful.util.spawn( "chromium --app=http://yoursports.stream/live?v=espn" ) end,
+        {description = "ESPN" ,group = "function keys" }),
+    awful.key({ modkey }, "F2", function () awful.util.spawn( "kodi" ) end,
+        {description = "kodi", group = "function keys"}),
+    awful.key({ modkey }, "F3", function () awful.util.spawn( "plexmediaplayer" ) end,
         {description = "plex" , group = "function keys" }),
-    awful.key({ modkey }, "F3", function () awful.util.spawn( "steam" ) end,
-        {description = "steam" , group = "function keys" }),
     awful.key({ modkey }, "F4", function () awful.util.spawn( "xfce4-appfinder" ) end,
         {description = "app launcher" , group = "function keys" }),
     awful.key({ modkey }, "F5", function () awful.util.spawn( "pamac-manager %U" ) end,
         {description = "app store" , group = "function keys" }),
     awful.key({ modkey }, "F6", function () awful.util.spawn( "vlc --video-on-top" ) end,
         {description = "vlc" , group = "function keys" }),
-    awful.key({ modkey }, "F7", function () awful.util.spawn( "simplescreenrecorder" ) end,
-        {description = "simplescreenrecorder" , group = "function keys" }),
+    awful.key({ modkey }, "F7", function () awful.util.spawn( "virtualbox" ) end,
+        {description = virtualmachine , group = "function keys" }),
     awful.key({ modkey }, "F8", function () awful.util.spawn( "conky-toggle" ) end,
         {description = "conky-toggle" , group = "function keys" }),
-    awful.key({ modkey }, "F9", function () awful.util.spawn( "virtualbox" ) end,
-        {description = virtualmachine , group = "function keys" }),
-    awful.key({ modkey }, "F10", function () awful.util.spawn( "xfce4-appearance-settings" ) end,
-        {description = "appearance settings" , group = "function keys" }),
-    awful.key({ modkey }, "F11", function () awful.util.spawn( "xfce4-settings-manager" ) end,
-        {description = "system settings" , group = "function keys" }),
-    awful.key({ modkey }, "F12", function () awful.util.spawn( "xfce4-taskmanager" ) end,
-        {description = "task manager" , group = "function keys" }),
-    -- awful.key({ modkey }, "F12", function () awful.util.spawn( "rofi -show run" ) end,
-        -- {description = "rofi" , group = "function keys" }),
+    awful.key({ modkey }, "F9", function () awful.util.spawn( mailclient ) end,
+        {description = mailclient , group = "function keys" }),
+    awful.key({ modkey }, "F10", function () awful.util.spawn( mediaplayer ) end,
+        {description = mediaplayer , group = "function keys" }),
+    awful.key({ modkey }, "F11", function () awful.util.spawn( "rofi -show run -fullscreen" ) end,
+        {description = "rofi fullscreen" , group = "function keys" }),
+    awful.key({ modkey }, "F12", function () awful.util.spawn( "rofi -show run" ) end,
+        {description = "rofi" , group = "function keys" }),
 
     -- super + ...
     awful.key({ modkey }, "c", function () awful.util.spawn( "code" ) end,
         {description = "vs code", group = "super"}),
-    awful.key({ modkey }, "e", function () awful.util.spawn( "google-chrome-stable --app=http://yoursports.stream/live?v=espn" ) end,
-        {description = "ESPN", group = "super"}),
-    awful.key({ modkey }, "n", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
-        {description = "Netflix", group = "super"}),
-    awful.key({ modkey }, "y", function () awful.util.spawn( "google-chrome-stable --app=https://www.youtube.com/feed/subscriptions" ) end,
-        {description = "YouTube", group = "super"}), 
-    --awful.key({ modkey }, "e", function () awful.util.spawn( editorgui ) end,
-        --{description = "run gui editor", group = "super"}),
-    awful.key({ modkey }, "h", function () awful.util.spawn( "urxvt -T 'htop task manager' -e htop" ) end,
-        {description = "htop", group = "super"}),
-    -- awful.key({ modkey }, "r", function () awful.util.spawn( "rofi-theme-selector" ) end,
-        -- {description = "rofi theme selector", group = "super"}),
-    --awful.key({ modkey }, "t", function () awful.util.spawn( terminal ) end,
-        --{description = "terminal", group = "super"}),
+    awful.key({ modkey }, "e", function () awful.util.spawn( editorgui ) end,
+        {description = "run gui editor", group = "super"}),
+    --awful.key({ modkey }, "h", function () awful.util.spawn( "urxvt -T 'htop task manager' -e htop" ) end,
+        --{description = "htop", group = "super"}),
+    awful.key({ modkey }, "r", function () awful.util.spawn( "rofi-theme-selector" ) end,
+        {description = "rofi theme selector", group = "super"}),
+    awful.key({ modkey }, "t", function () awful.util.spawn( terminal ) end,
+        {description = "terminal", group = "super"}),
     awful.key({ modkey }, "v", function () awful.util.spawn( "pavucontrol" ) end,
         {description = "pulseaudio control", group = "super"}),
     --awful.key({ modkey }, "u", function () awful.screen.focused().mypromptbox:run() end,
@@ -454,8 +444,6 @@ globalkeys = my_table.join(
     awful.key({ altkey }, "F2", function () awful.util.spawn( "gmrun" ) end,
         {description = "Gmrun", group = "altkey"}),
     awful.key({ altkey }, "F3", function () awful.util.spawn( "xfce4-appfinder" ) end,
-        {description = "Xfce appfinder", group = "altkey"}),
-    awful.key({ altkey }, "a", function () awful.util.spawn( "arandr" ) end,
         {description = "Xfce appfinder", group = "altkey"}),
 
     -- screenshots
@@ -800,13 +788,11 @@ clientkeys = my_table.join(
             c:raise()
         end,
         {description = "toggle fullscreen", group = "client"}),
-    awful.key({ modkey }, 't', function (c) awful.titlebar.toggle(c)                         end,
-        {description = 'toggle title bar', group = 'client'}),
     awful.key({ modkey, "Shift"   }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "hotkeys"}),
     awful.key({ modkey, },           "q",      function (c) c:kill()                         end,
               {description = "close", group = "hotkeys"}),
-    awful.key({ modkey, "Shift" }, "f",  awful.client.floating.toggle                     ,
+    awful.key({ modkey, "Shift" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
@@ -906,11 +892,12 @@ clientbuttons = gears.table.join(
 root.keys(globalkeys)
 -- }}}
 
+
+
 -- {{{ Rules
 -- property::requests_no_titlebar, property::focusable, 
 -- property::fullscreen, property::maximized
 -- property::opacity number //Between 0 (transparent) to 1 (opaque)
--- property::minimizedDefine it the client must be iconify, i.e. only visible in taskbar.
 
 -- Rules to apply to new clients (through the "manage" signal).
 awful.rules.rules = {
@@ -929,12 +916,9 @@ awful.rules.rules = {
     },
 
     -- Titlebars
-    { rule_any = { type = { "dialog", "normal" } },         --tittlebars set to off, toggle with modkey+t
+    { rule_any = { type = { "dialog", "normal" } },
       properties = { titlebars_enabled = false  } },
 
-    { rule = { class = "Thunar" },
-      properties = { border_width = 0, border_color = transparent, opacity = 0.9 } },
-      
     -- Set applications to always map on the tag 1 on any screen.
     -- find class or role via xprop command
     --{ rule = { class = browser2 },
@@ -946,15 +930,15 @@ awful.rules.rules = {
     --{ rule = { class = "Vivaldi-stable" },
         --properties = { tag = awful.util.tagnames[1], switchtotag = true } },
 
-    --{ rule = { class = "google-chrome" },
+    --{ rule = { class = "Chromium" },
       --properties = { tag = awful.util.tagnames[1], switchtotag = true  } },
 
     --{ rule = { class = "Opera" },
       --properties = { tag = awful.util.tagnames[1],switchtotag = true  } },
 
     -- Set applications to always map on the tag 2 on any screen.
-    --{ rule = { class = "kodi" },
-        --properties = { tag = awful.util.tagnames[2],switchtotag = true  } },
+    { rule = { class = "Kodi" },
+        properties = { tag = awful.util.tagnames[2],switchtotag = true  } },
 
     --{ rule = { class = editorgui },
         --properties = { tag = awful.util.tagnames[2], switchtotag = true  } },
@@ -969,30 +953,16 @@ awful.rules.rules = {
          --  properties = { tag = awful.util.tagnames[2], switchtotag = true  } },
 
     -- Set applications to always map on the tag 3 on any screen.
-    { rule = { class = "kodi" },
-        properties = { tag = awful.util.tagnames[3],  switchtotag = true  } },
-
-    --{ rule = { class = "plexmediaplayer" },
-        --properties = { tag = awful.util.tagnames[3], switchtotag = true } },
+    { rule = { class = "plexmediaplayer" },
+        properties = { tag = awful.util.tagnames[3], switchtotag = true } },
 
     -- Set applications to always map on the tag 4 on any screen.
-    { rule = { class = "plexmediaplayer" },
-        properties = { tag = awful.util.tagnames[4], requests_no_titlebar, switchtotag = true } },
-
-    --{ rule = { class = "stremio" },
-        --properties = { tag = awful.util.tagnames[4], switchtotag = true  } },
+    { rule = { class = "Stremio" },
+        properties = { tag = awful.util.tagnames[4], switchtotag = true  } },
 
     -- Set applications to always map on the tag 5 on any screen.
-    { rule = { class = "stremio" },
-        properties = { tag = awful.util.tagnames[5], switchtotag = true  } },
     --{ rule = { class = "retroarch" },
-        --properties = { tag = awful.util.tagnames[5] , switchtotag = true  } },
-
-    -- Set applications to always map on the tag 6 on any screen.
-    --{ rule = { class = "stremio" },
-        --properties = { tag = awful.util.tagnames[6], switchtotag = true  } },
-    --{ rule = { class = "retroarch" },
-        --properties = { tag = awful.util.tagnames[6] , switchtotag = true  } },
+        --properties = { tag = awful.util.tagnames[5] , switchtotag = false  } },
     
     --#######################################################################################
     -- Set applications to always map on the tag 1 on screen 1.
@@ -1006,15 +976,15 @@ awful.rules.rules = {
     --{ rule = { class = "Vivaldi-stable" },
         --properties = { screen = 1, tag = awful.util.tagnames[1], switchtotag = true } },
 
-    --{ rule = { class = "google-chrome" },
+    --{ rule = { class = "Chromium" },
       --properties = { screen = 1, tag = awful.util.tagnames[1], switchtotag = true  } },
 
     --{ rule = { class = "Opera" },
       --properties = { screen = 1, tag = awful.util.tagnames[1],switchtotag = true  } },
 
     -- Set applications to always map on the tag 2 on screen 1.
-    --{ rule = { class = "kodi" },
-        --properties = { screen = 1, tag = awful.util.tagnames[2],focusable = false, switchtotag = true  } },
+    --{ rule = { class = "Kodi" },
+        --properties = { screen = 1, tag = awful.util.tagnames[2],switchtotag = false  } },
 
     --{ rule = { class = editorgui },
         --properties = { screen = 1, tag = awful.util.tagnames[2], switchtotag = true  } },
@@ -1032,16 +1002,16 @@ awful.rules.rules = {
          --  properties = { screen = 1, tag = awful.util.tagnames[2], switchtotag = true  } },
 
     -- Set applications to always map on the tag 3 on screen 1.
-    --{ rule = { class = "stremio" },
-        --properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = true } },
+    --{ rule = { class = "Stremio" },
+        --properties = { screen = 1, tag = awful.util.tagnames[3], switchtotag = false } },
 
     -- Set applications to always map on the tag 4 on screen 1.
     --{ rule = { class = "plexmediaplayer" },
-        --properties = { screen = 1, tag = awful.util.tagnames[4], switchtotag = true  } },
+        --properties = { screen = 1, tag = awful.util.tagnames[4], switchtotag = false  } },
 
     -- Set applications to always map on the tag 5 on screen 1.
     --{ rule = { class = "retroarch" },
-        --properties = { screen = 1, tag = awful.util.tagnames[5] , switchtotag = true  } },
+        --properties = { screen = 1, tag = awful.util.tagnames[5] , switchtotag = false  } },
         
     --#######################################################################################
     -- Set applications to always map on the tag 1 on screen 2.
@@ -1055,15 +1025,15 @@ awful.rules.rules = {
     --{ rule = { class = "Vivaldi-stable" },
         --properties = { screen = 2, tag = awful.util.tagnames[1], switchtotag = true } },
 
-    --{ rule = { class = "google-chrome" },
+    --{ rule = { class = "Chromium" },
       --properties = { screen = 2, tag = awful.util.tagnames[1], switchtotag = true  } },
 
     --{ rule = { class = "Opera" },
       --properties = { screen = 2, tag = awful.util.tagnames[1],switchtotag = true  } },
 
     -- Set applications to always map on the tag 2 on screen 2.
-    --{ rule = { class = "kodi" },
-        --properties = { screen = 2, tag = awful.util.tagnames[2], switchtotag = true  } },
+    --{ rule = { class = "Kodi" },
+        --properties = { screen = 2, tag = awful.util.tagnames[2],switchtotag = true  } },
 
     --{ rule = { class = editorgui },
         --properties = { screen = 2, tag = awful.util.tagnames[2], switchtotag = true  } },
@@ -1078,7 +1048,7 @@ awful.rules.rules = {
          --  properties = { screen = 2, tag = awful.util.tagnames[2], switchtotag = true  } },
 
     -- Set applications to always map on the tag 3 on screen 2.
-    --{ rule = { class = "stremio" },
+    --{ rule = { class = "Stremio" },
         --properties = { screen = 2, tag = awful.util.tagnames[3], switchtotag = true } },
 
     -- Set applications to always map on the tag 4 on screen 2.
@@ -1087,7 +1057,7 @@ awful.rules.rules = {
 
     -- Set applications to always map on the tag 5 on screen 2.
     --{ rule = { class = "retroarch" },
-        --properties = { screen = 2, tag = awful.util.tagnames[5] , switchtotag = true  } },
+        --properties = { screen = 2, tag = awful.util.tagnames[5] , switchtotag = false  } },
 
     -- Set applications to be maximized at startup.
     -- find class or role via xprop command
@@ -1107,29 +1077,20 @@ awful.rules.rules = {
     { rule = { class = "inkscape" },
           properties = { maximized = true } },
 
-    { rule = { class = "kodi" },
-          properties = { fullscreen = true } },
-          
-    { rule = { class = "plexmediaplayer" },
-          properties = { fullscreen = true } },
-
     { rule = { class = "stremio" },
-          properties = { fullscreen = true } },
+          properties = { maximized = true } },
 
-    { rule = { class = "retroarch" },
-          properties = { fullscreen = true } },
+    { rule = { class = mediaplayer },
+          properties = { maximized = true } },
 
-    --{ rule = { class = mediaplayer },
-          --properties = { maximized = true } },
-
-    --{ rule = { class = "Vlc" },
-          --properties = { maximized = true } },
+    { rule = { class = "Vlc" },
+          properties = { maximized = true } },
 
     { rule = { class = "VirtualBox Manager" },
           properties = { maximized = true } },
 
     { rule = { class = "VirtualBox Machine" },
-          properties = { maximized = tru} },
+          properties = { maximized = true } },
 
     { rule = { class = "Vivaldi-stable" },
           properties = { maximized = false, floating = false } },
@@ -1146,6 +1107,11 @@ awful.rules.rules = {
 
     { rule = { class = "Xfce4-settings-manager" },
           properties = { floating = false } },
+
+
+
+
+
 
     -- Floating clients.
     { rule_any = {
@@ -1173,8 +1139,8 @@ awful.rules.rules = {
           "Wpa_gui",
           "pinentry",
           "veromix",
-          --"Xfce4-terminal"    --comment to make vim non floating
-          "xtightvncviewer",},
+          "xtightvncviewer",
+          "Xfce4-terminal"},
 
         name = {
           "Event Tester",  -- xev.
@@ -1217,7 +1183,6 @@ end)
 
 -- Add a titlebar if titlebars_enabled is set to true in the rules.
 client.connect_signal("request::titlebars", function(c)
-    awful.titlebar.hide(c)      --used to toggle title bars with super+t
     -- Custom
     if beautiful.titlebar_fun then
         beautiful.titlebar_fun(c)
@@ -1274,28 +1239,19 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- }}}
 
--- Autostart applications                          -- launch arandr with alt+a
-awful.spawn.with_shell("~/.screenlayout/*.sh")     -- save only one layout with arandr inside ~/.screenlayout/ 
+-- Autostart applications
 awful.spawn.with_shell("~/.config/awesome/autostart.sh")
 awful.spawn.with_shell("picom -b --config  $HOME/.config/awesome/picom.conf")
-awful.spawn.with_shell("nm-applet")
-awful.spawn.with_shell("pamac-tray")
-awful.spawn.with_shell("blueberry-tray")
-awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
---awful.spawn.with_shell("numlockx on")
-awful.spawn.with_shell("conky -c $HOME/.config/awesome/system-overview")
---awful.spawn.with_shell("feh --bg-fill $HOME/.config/awesome/themes/copland/starwarsblue.jpg &")
---awful.spawn.with_shell("xfce4-power-manager")
---awful.spawn.with_shell("nitrogen --restore")
---awful.spawn.with_shell("")
-
 -- uncomment the below awful.spawns 
 -- and add application you wish to spawn in between ""
 
+--awful.spawn("")
 --awful.spawn("kodi")
 --awful.spawn("stremio")
 --awful.spawn("plexmediaplayer")
 --awful.spawn("retroarch")
---awful.spawn("google-chrome-stable --app=http://yoursports.stream/live?v=espn")
+--awful.spawn("chromium --app=http://yoursports.stream/live?v=espn")
+--awful.spawn("chromium --app=http://yoursports.stream/live?v=espn")
+--awful.spawn("chromium --app=http://yoursports.stream/live?v=espn")
+--awful.spawn("chromium --app=http://yoursports.stream/live?v=espn")
 --awful.spawn("mpv")
---awful.spawn("")
