@@ -353,6 +353,8 @@ globalkeys = my_table.join(
     -- super + ...
     awful.key({ modkey }, "c", function () awful.util.spawn( "code" ) end,
         {description = "vs code", group = "super"}),
+    awful.key({ modkey }, "d", function () awful.spawn.with_shell( "progl /opt/resolve/bin/resolve" ) end,
+        {description = "davinci resolve", group = "super"}),
     awful.key({ modkey }, "e", function () awful.util.spawn( "google-chrome-stable --app=http://yoursports.stream/live?v=espn" ) end,
         {description = "ESPN", group = "super"}),
     awful.key({ modkey }, "n", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
@@ -378,6 +380,7 @@ globalkeys = my_table.join(
 
     -- super + shift + ...
     awful.key({ modkey, "Shift"   }, "Return", function() awful.util.spawn( filemanager ) end),
+    awful.key({ modkey, "Shift"   }, "m", function() awful.util.spawn( "google-chrome-stable --app=https://music.youtube.com" ) end),
 
 
     -- ctrl + shift + ...
