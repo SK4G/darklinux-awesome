@@ -382,6 +382,14 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Shift"   }, "Return", function() awful.util.spawn( filemanager ) end),
     awful.key({ modkey, "Shift"   }, "m", function() awful.util.spawn( "google-chrome-stable --app=https://music.youtube.com" ) end),
 
+    awful.key({ modkey, "Shift"   }, "v", function () awful.util.spawn( "vivaldi-stable" ) end,
+        {description = "vivaldi", group = "super"}),
+    awful.key({ modkey, "Shift"   }, "e", function () awful.util.spawn( "vivaldi-stable --app=http://yoursports.stream/live?v=espn" ) end,
+        {description = "ESPN", group = "super"}),
+    awful.key({ modkey, "Shift"   }, "n", function () awful.util.spawn( "vivaldi-stable --app=https://www.netflix.com/browse" ) end,
+        {description = "Netflix", group = "super"}),
+    awful.key({ modkey, "Shift"   }, "y", function () awful.util.spawn( "vivaldi-stable --app=https://www.youtube.com/feed/subscriptions" ) end,
+        {description = "YouTube", group = "super"}), 
 
     -- ctrl + shift + ...
     awful.key({ modkey1, "Shift"  }, "Escape", function() awful.util.spawn("xfce4-taskmanager") end),
@@ -981,6 +989,9 @@ awful.rules.rules = {
     -- Set applications to always map on the tag 4 on any screen.
     { rule = { class = "plexmediaplayer" },
         properties = { tag = awful.util.tagnames[4], requests_no_titlebar, switchtotag = true } },
+        
+    { rule = { class = "Steam" },                                                   --steam in floating tag launches games fullscreen
+        properties = { tag = awful.util.tagnames[4], switchtotag = true  } },
 
     --{ rule = { class = "stremio" },
         --properties = { tag = awful.util.tagnames[4], switchtotag = true  } },

@@ -12,7 +12,7 @@ run "dex $HOME/.config/autostart/arcolinux-welcome-app.desktop"
 run "nm-applet"
 #run "caffeine"
 run "pamac-tray"
-run "variety"
+#run "variety"
 run "xfce4-power-manager"
 run "blueberry-tray"
 run "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
@@ -21,7 +21,7 @@ run "volumeicon"
 #run "nitrogen --restore"
 run "conky -c $HOME/.config/awesome/system-overview"
 #you can set wallpapers in themes as well
-feh --bg-fill $HOME/.config/awesome/themes/copland/starwarsblue.jpg &
+#feh --bg-fill $HOME/.config/awesome/themes/copland/starwarsblue.jpg &
 #run applications from startup
 #run "firefox"
 #run "atom"
