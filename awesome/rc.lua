@@ -382,8 +382,11 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Shift"   }, "Return", function() awful.util.spawn( filemanager ) end),
     awful.key({ modkey, "Shift"   }, "m", function() awful.util.spawn( "google-chrome-stable --app=https://music.youtube.com" ) end),
 
+<<<<<<< HEAD
     awful.key({ modkey, "Shift"   }, "a", function () awful.util.spawn( "xfce4-appfinder" ) end,
         {description = "app launcher", group = "super"}),
+=======
+>>>>>>> fb0a00cba213e7870b5a0eaaf8e6ea6fe92e60c2
     awful.key({ modkey, "Shift"   }, "v", function () awful.util.spawn( "vivaldi-stable" ) end,
         {description = "vivaldi", group = "super"}),
     awful.key({ modkey, "Shift"   }, "e", function () awful.util.spawn( "vivaldi-stable --app=http://yoursports.stream/live?v=espn" ) end,
