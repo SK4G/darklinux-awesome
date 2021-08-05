@@ -1313,7 +1313,7 @@ awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-
 awful.spawn.with_shell("conky -c $HOME/.config/awesome/system-overview")
 --awful.spawn.with_shell("feh --bg-fill $HOME/.config/awesome/themes/copland/starwarsblue.jpg &")
 awful.spawn.with_shell("xfce4-clipman")
-awful.spawn.with_shell("xfce4-power-manager")
+-- awful.spawn.with_shell("xfce4-battery-plugin")
 --awful.spawn.with_shell("nitrogen --restore")
 --awful.spawn.with_shell("")
 
