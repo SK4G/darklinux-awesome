@@ -327,8 +327,8 @@ globalkeys = my_table.join(
         {description = "kodi" ,group = "function keys" }),
     awful.key({ modkey }, "F2", function () awful.util.spawn( "plexmediaplayer" ) end,
         {description = "plex" , group = "function keys" }),
-    awful.key({ modkey }, "F3", function () awful.util.spawn( "steam" ) end,
-        {description = "steam" , group = "function keys" }),
+    awful.key({ modkey }, "F3", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
+        {description = "netlix" , group = "function keys" }),
     awful.key({ modkey }, "F4", function () awful.util.spawn( "xfce4-appfinder" ) end,
         {description = "app launcher" , group = "function keys" }),
     awful.key({ modkey }, "F5", function () awful.util.spawn( "pamac-manager %U" ) end,
@@ -357,14 +357,18 @@ globalkeys = my_table.join(
         {description = "davinci resolve", group = "super"}),
     awful.key({ modkey }, "e", function () awful.util.spawn( "google-chrome-stable --app=http://yoursports.stream/live?v=espn" ) end,
         {description = "ESPN", group = "super"}),
-    awful.key({ modkey }, "n", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
-        {description = "Netflix", group = "super"}),
+    -- awful.key({ modkey }, "n", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
+        -- {description = "Netflix", group = "super"}),
     awful.key({ modkey }, "y", function () awful.util.spawn( "google-chrome-stable --app=https://www.youtube.com/feed/subscriptions" ) end,
         {description = "YouTube", group = "super"}), 
     --awful.key({ modkey }, "e", function () awful.util.spawn( editorgui ) end,
         --{description = "run gui editor", group = "super"}),
     awful.key({ modkey }, "h", function () awful.util.spawn( "urxvt -T 'htop task manager' -e htop" ) end,
         {description = "htop", group = "super"}),
+    awful.key({ modkey }, "p", function () awful.util.spawn( "system-config-printer" ) end,
+        {description = "print settings", group = "super"}),
+    awful.key({ modkey }, "r", function () awful.util.spawn( "simplescreenrecorder" ) end,
+        {description = "simplescreenrecorder" , group = "function keys" }),
     -- awful.key({ modkey }, "r", function () awful.util.spawn( "rofi-theme-selector" ) end,
         -- {description = "rofi theme selector", group = "super"}),
     --awful.key({ modkey }, "t", function () awful.util.spawn( terminal ) end,
@@ -382,19 +386,20 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Shift"   }, "Return", function() awful.util.spawn( filemanager ) end),
     awful.key({ modkey, "Shift"   }, "m", function() awful.util.spawn( "google-chrome-stable --app=https://music.youtube.com" ) end),
 
-<<<<<<< HEAD
     awful.key({ modkey, "Shift"   }, "a", function () awful.util.spawn( "xfce4-appfinder" ) end,
         {description = "app launcher", group = "super"}),
-=======
->>>>>>> fb0a00cba213e7870b5a0eaaf8e6ea6fe92e60c2
     awful.key({ modkey, "Shift"   }, "v", function () awful.util.spawn( "vivaldi-stable" ) end,
         {description = "vivaldi", group = "super"}),
     awful.key({ modkey, "Shift"   }, "e", function () awful.util.spawn( "vivaldi-stable --app=http://yoursports.stream/live?v=espn" ) end,
         {description = "ESPN", group = "super"}),
-    awful.key({ modkey, "Shift"   }, "n", function () awful.util.spawn( "vivaldi-stable --app=https://www.netflix.com/browse" ) end,
-        {description = "Netflix", group = "super"}),
+    -- awful.key({ modkey, "Shift"   }, "n", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
+        -- {description = "Netflix", group = "super"}),
     awful.key({ modkey, "Shift"   }, "y", function () awful.util.spawn( "vivaldi-stable --app=https://www.youtube.com/feed/subscriptions" ) end,
         {description = "YouTube", group = "super"}), 
+    awful.key({ modkey, "Shift"   }, "s", function () awful.util.spawn( "steam" ) end,
+        {description = "Steam", group = "super"}),
+
+    -- super + ctrl + ...
 
     -- ctrl + shift + ...
     awful.key({ modkey1, "Shift"  }, "Escape", function() awful.util.spawn("xfce4-taskmanager") end),
@@ -475,7 +480,7 @@ globalkeys = my_table.join(
         {description = "Xfce appfinder", group = "altkey"}),
 
     -- screenshots
-    awful.key({ }, "Print", function () awful.util.spawn("scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'") end,
+    awful.key({ }, "Print", function () awful.util.spawn("scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'") end,
         {description = "Scrot", group = "screenshots"}),
     awful.key({ modkey1           }, "Print", function () awful.util.spawn( "xfce4-screenshooter" ) end,
         {description = "Xfce screenshot", group = "screenshots"}),
@@ -1307,7 +1312,8 @@ awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-
 --awful.spawn.with_shell("numlockx on")
 awful.spawn.with_shell("conky -c $HOME/.config/awesome/system-overview")
 --awful.spawn.with_shell("feh --bg-fill $HOME/.config/awesome/themes/copland/starwarsblue.jpg &")
---awful.spawn.with_shell("xfce4-power-manager")
+awful.spawn.with_shell("xfce4-clipman")
+awful.spawn.with_shell("xfce4-power-manager")
 --awful.spawn.with_shell("nitrogen --restore")
 --awful.spawn.with_shell("")
 
