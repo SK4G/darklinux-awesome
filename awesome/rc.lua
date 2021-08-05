@@ -341,7 +341,9 @@ globalkeys = my_table.join(
         {description = "conky-toggle" , group = "function keys" }),
     awful.key({ modkey }, "F9", function () awful.util.spawn( "virtualbox" ) end,
         {description = virtualmachine , group = "function keys" }),
-    awful.key({ modkey }, "F10", function () awful.util.spawn( "xfce4-appearance-settings" ) end,
+    -- awful.key({ modkey }, "F10", function () awful.util.spawn( "xfce4-appearance-settings" ) end,
+    --     {description = "appearance settings" , group = "function keys" }),
+    awful.key({ modkey }, "F10", function () awful.util.spawn( "lxappearance" ) end,
         {description = "appearance settings" , group = "function keys" }),
     awful.key({ modkey }, "F11", function () awful.util.spawn( "xfce4-settings-manager" ) end,
         {description = "system settings" , group = "function keys" }),
@@ -400,6 +402,8 @@ globalkeys = my_table.join(
         {description = "Steam", group = "super"}),
 
     -- super + ctrl + ...
+    awful.key({ modkey, modkey1 }, "v", function () awful.util.spawn( "virtualbox" ) end,
+        {description = virtualmachine , group = "function keys" }),
 
     -- ctrl + shift + ...
     awful.key({ modkey1, "Shift"  }, "Escape", function() awful.util.spawn("xfce4-taskmanager") end),
@@ -1312,7 +1316,7 @@ awful.spawn.with_shell("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-
 --awful.spawn.with_shell("numlockx on")
 awful.spawn.with_shell("conky -c $HOME/.config/awesome/system-overview")
 --awful.spawn.with_shell("feh --bg-fill $HOME/.config/awesome/themes/copland/starwarsblue.jpg &")
-awful.spawn.with_shell("xfce4-clipman")
+-- awful.spawn.with_shell("xfce4-clipman")
 -- awful.spawn.with_shell("xfce4-battery-plugin")
 --awful.spawn.with_shell("nitrogen --restore")
 --awful.spawn.with_shell("")
