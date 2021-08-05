@@ -448,6 +448,8 @@ globalkeys = my_table.join(
         {description = terminal, group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "m", function() awful.util.spawn( "xfce4-settings-manager" ) end,
         {description = "Xfce settings manager", group = "alt+ctrl"}),
+    awful.key({ modkey1, altkey   }, "n", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
+        {description = "Netflix", group = "alt+ctrl"}),
     awful.key({ modkey1, altkey   }, "p", function() awful.util.spawn( "pamac-manager" ) end,
         {description = "Pamac Manager", group = "alt+ctrl"}),
 
@@ -1010,6 +1012,9 @@ awful.rules.rules = {
     --{ rule = { class = "stremio" },
         --properties = { tag = awful.util.tagnames[4], switchtotag = true  } },
 
+    { rule = { class = "VirtualBox Manager" },
+        properties = { tag = awful.util.tagnames[4], switchtotag = true } },
+
     -- Set applications to always map on the tag 5 on any screen.
     { rule = { class = "stremio" },
         properties = { tag = awful.util.tagnames[5], switchtotag = true  } },
@@ -1160,7 +1165,7 @@ awful.rules.rules = {
           properties = { maximized = true } },
 
     { rule = { class = "VirtualBox Machine" },
-          properties = { maximized = tru} },
+          properties = { maximized = true} },
 
     { rule = { class = "Vivaldi-stable" },
           properties = { maximized = false, floating = false } },
