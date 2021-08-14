@@ -355,8 +355,8 @@ globalkeys = my_table.join(
     -- super + ...
     awful.key({ modkey }, "c", function () awful.util.spawn( "code" ) end,
         {description = "vs code", group = "super"}),
-    awful.key({ modkey }, "d", function () awful.spawn.with_shell( "progl /opt/resolve/bin/resolve" ) end,
-        {description = "davinci resolve", group = "super"}),
+    -- awful.key({ modkey }, "d", function () awful.spawn.with_shell( "progl /opt/resolve/bin/resolve" ) end,
+    --     {description = "davinci resolve", group = "super"}),
     awful.key({ modkey }, "e", function () awful.util.spawn( "google-chrome-stable --app=http://yoursports.stream/live?v=espn" ) end,
         {description = "ESPN", group = "super"}),
     -- awful.key({ modkey }, "n", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
@@ -407,7 +407,7 @@ globalkeys = my_table.join(
 
     -- ctrl + shift + ...
     awful.key({ modkey1, "Shift"  }, "Escape", function() awful.util.spawn("xfce4-taskmanager") end),
-
+    awful.key({ modkey1, "Shift"  }, "k", function() awful.util.spawn("kdenlive") end),
 
     -- ctrl+alt +  ...
     awful.key({ modkey1, altkey   }, "w", function() awful.util.spawn( "arcolinux-welcome-app" ) end,
@@ -1139,6 +1139,9 @@ awful.rules.rules = {
 
     { rule = { class = "inkscape" },
           properties = { maximized = true } },
+
+    { rule = { class = "kdenlive" },
+          properties = { fullscreen = false } },
 
     { rule = { class = "kodi" },
           properties = { fullscreen = true } },
