@@ -365,7 +365,7 @@ globalkeys = my_table.join(
         {description = "YouTube", group = "super"}), 
     --awful.key({ modkey }, "e", function () awful.util.spawn( editorgui ) end,
         --{description = "run gui editor", group = "super"}),
-    awful.key({ modkey }, "h", function () awful.util.spawn( "urxvt -T 'htop task manager' -e htop" ) end,
+    awful.key({ modkey }, "h", function () awful.util.spawn( "alacritty -T 'htop task manager' -e htop" ) end,
         {description = "htop", group = "super"}),
     awful.key({ modkey }, "p", function () awful.util.spawn( "system-config-printer" ) end,
         {description = "print settings", group = "super"}),
