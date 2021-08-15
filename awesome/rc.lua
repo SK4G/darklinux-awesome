@@ -126,7 +126,7 @@ local editorgui         = "code"
 local filemanager       = "thunar"
 local mailclient        = "evolution"
 local mediaplayer       = "vlc"
-local terminal          = "urxvt"
+local terminal          = "alacritty"
 local virtualmachine    = "virtualbox"
 
 -- awesome variables
