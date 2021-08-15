@@ -369,8 +369,8 @@ globalkeys = my_table.join(
         {description = "htop", group = "super"}),
     awful.key({ modkey }, "p", function () awful.util.spawn( "system-config-printer" ) end,
         {description = "print settings", group = "super"}),
-    awful.key({ modkey }, "r", function () awful.util.spawn( "simplescreenrecorder" ) end,
-        {description = "simplescreenrecorder" , group = "function keys" }),
+    awful.key({ modkey }, "r", function () awful.util.spawn( "retroarch" ) end,
+        {description = "retroarch" , group = "function keys" }),
     -- awful.key({ modkey }, "r", function () awful.util.spawn( "rofi-theme-selector" ) end,
         -- {description = "rofi theme selector", group = "super"}),
     --awful.key({ modkey }, "t", function () awful.util.spawn( terminal ) end,
@@ -396,6 +396,8 @@ globalkeys = my_table.join(
         {description = "ESPN", group = "super"}),
     -- awful.key({ modkey, "Shift"   }, "n", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
         -- {description = "Netflix", group = "super"}),
+    -- awful.key({ modkey, "Shift"   }, "o", function () awful.util.spawn( "obs" ) end,
+    --     {description = "OBS Studio", group = "super"}),
     awful.key({ modkey, "Shift"   }, "y", function () awful.util.spawn( "vivaldi-stable --app=https://www.youtube.com/feed/subscriptions" ) end,
         {description = "YouTube", group = "super"}), 
     awful.key({ modkey, "Shift"   }, "s", function () awful.util.spawn( "steam" ) end,
@@ -408,6 +410,8 @@ globalkeys = my_table.join(
     -- ctrl + shift + ...
     awful.key({ modkey1, "Shift"  }, "Escape", function() awful.util.spawn("xfce4-taskmanager") end),
     awful.key({ modkey1, "Shift"  }, "k", function() awful.util.spawn("kdenlive") end),
+    awful.key({ modkey1, "Shift"  }, "o", function() awful.util.spawn("obs") end),
+    awful.key({ modkey1, "Shift"  }, "s", function() awful.util.spawn("simplescreenrecorder") end),
 
     -- ctrl+alt +  ...
     awful.key({ modkey1, altkey   }, "w", function() awful.util.spawn( "arcolinux-welcome-app" ) end,
