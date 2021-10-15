@@ -128,6 +128,9 @@ local mailclient        = "evolution"
 local mediaplayer       = "vlc"
 local terminal          = "alacritty"
 local virtualmachine    = "virtualbox"
+local ESPN              = "google-chrome-stable --app=http://yoursports.to/live?v=espn"
+local ESPN2             =  "vivaldi-stable --app=http://yoursports.to/live?v=espn"
+-- local movies            = "google-chrome-stable --app="
 
 -- awesome variables
 awful.util.terminal = terminal
@@ -359,7 +362,7 @@ globalkeys = my_table.join(
         {description = "vs code", group = "super"}),
     -- awful.key({ modkey }, "d", function () awful.spawn.with_shell( "progl /opt/resolve/bin/resolve" ) end,
     --     {description = "davinci resolve", group = "super"}),
-    awful.key({ modkey }, "e", function () awful.util.spawn( "google-chrome-stable --app=http://yoursports.stream/live?v=espn" ) end,
+    awful.key({ modkey }, "e", function () awful.util.spawn( ESPN ) end,
         {description = "ESPN", group = "super"}),
     -- awful.key({ modkey }, "n", function () awful.util.spawn( "google-chrome-stable --app=https://www.netflix.com/browse" ) end,
         -- {description = "Netflix", group = "super"}),
@@ -396,7 +399,7 @@ globalkeys = my_table.join(
     --     {description = "app launcher", group = "super"}),
     awful.key({ modkey, "Shift"   }, "v", function () awful.util.spawn( "vivaldi-stable" ) end,
         {description = "vivaldi", group = "super"}),
-    awful.key({ modkey, "Shift"   }, "e", function () awful.util.spawn( "vivaldi-stable --app=http://yoursports.stream/live?v=espn" ) end,
+    awful.key({ modkey, "Shift"   }, "e", function () awful.util.spawn( ESPN2 ) end,
         {description = "ESPN", group = "super"}),
     awful.key({ modkey, "Shift"   }, "y", function () awful.util.spawn( "vivaldi-stable --app=https://www.youtube.com/feed/subscriptions" ) end,
         {description = "YouTube", group = "super"}), 
@@ -1350,6 +1353,6 @@ awful.spawn.with_shell("picom -b --config  $HOME/.config/awesome/picom.conf")
 --awful.spawn("stremio")
 --awful.spawn("plexmediaplayer")
 --awful.spawn("retroarch")
---awful.spawn("google-chrome-stable --app=http://yoursports.stream/live?v=espn")
+--awful.spawn(ESPN)
 --awful.spawn("mpv")
 --awful.spawn("")
