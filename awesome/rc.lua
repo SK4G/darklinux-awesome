@@ -126,11 +126,16 @@ local editorgui         = "code"
 local filemanager       = "thunar"
 local mailclient        = "evolution"
 local mediaplayer       = "vlc"
-local terminal          = "urxvt"
+local terminal          = "alacritty"
 local virtualmachine    = "virtualbox"
+<<<<<<< HEAD
 local ESPN              = "google-chrome-stable --app=https://en.vipleague.tv/espn-1-live-streaming"
 local ESPN2             = "vivaldi-stable --app=http://yoursports.to/live?v=espn"
 local NFL               = "google-chrome-stable --app=http://watchsports.to/live?v=nfl?g=network"
+=======
+local ESPN              = "google-chrome-stable --app=http://yoursports.to/live?v=espn"
+local ESPN2             =  "vivaldi-stable --app=http://yoursports.to/live?v=espn"
+>>>>>>> 9d35dce473890e7f3684a5ca1036236061bcfc85
 -- local movies            = "google-chrome-stable --app="
 
 -- awesome variables
@@ -412,8 +417,11 @@ globalkeys = my_table.join(
     -- super + ctrl + ...
     awful.key({ modkey, modkey1 }, "v", function () awful.util.spawn( "virtualbox" ) end,
         {description = virtualmachine , group = "super" }),
+<<<<<<< HEAD
     awful.key({ modkey, modkey1 }, "n", function () awful.util.spawn( NFL ) end,
         {description = "NFL-Network" , group = "super" }),
+=======
+>>>>>>> 9d35dce473890e7f3684a5ca1036236061bcfc85
     awful.key({ modkey, modkey1 }, "o", function () awful.util.spawn( "obs" ) end,
         {description = "obs" , group = "super" }),
 
