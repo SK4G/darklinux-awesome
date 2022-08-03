@@ -127,7 +127,7 @@ local filemanager       = "thunar"
 local mailclient        = "evolution"
 local mediaplayer       = "vlc"
 local terminal          = "urxvt"
-local virtualmachine    = "virtualbox"
+local virtualmachine    = "virt-manager"
 local ESPN              = "google-chrome-stable --app=https://en.vipleague.tv/espn-1-live-streaming"
 local ESPN2             = "vivaldi-stable --app=http://yoursports.to/live?v=espn"
 local NFL               = "google-chrome-stable --app=http://watchsports.to/live?v=nfl?g=network"
@@ -343,7 +343,7 @@ globalkeys = my_table.join(
         {description = "simplescreenrecorder" , group = "function keys" }),
     awful.key({ modkey }, "F8", function () awful.util.spawn( "conky-toggle" ) end,
         {description = "conky-toggle" , group = "function keys" }),
-    awful.key({ modkey }, "F9", function () awful.util.spawn( "virtualbox" ) end,
+    awful.key({ modkey }, "F9", function () awful.util.spawn( virtualmachine ) end,
         {description = virtualmachine , group = "function keys" }),
     -- awful.key({ modkey }, "F10", function () awful.util.spawn( "xfce4-appearance-settings" ) end,
     --     {description = "appearance settings" , group = "function keys" }),
@@ -410,7 +410,7 @@ globalkeys = my_table.join(
         {description = "Steam", group = "super"}),
 
     -- super + ctrl + ...
-    awful.key({ modkey, modkey1 }, "v", function () awful.util.spawn( "virtualbox" ) end,
+    awful.key({ modkey, modkey1 }, "v", function () awful.util.spawn( virtualmachine ) end,
         {description = virtualmachine , group = "super" }),
     awful.key({ modkey, modkey1 }, "n", function () awful.util.spawn( NFL ) end,
         {description = "NFL-Network" , group = "super" }),
