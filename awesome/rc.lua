@@ -13,6 +13,7 @@
 
 --]]
 
+
 -- {{{ Required libraries
 local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
 local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, table, tostring, tonumber, type
@@ -322,8 +323,8 @@ globalkeys = my_table.join(
     {description = "show dmenu", group = "hotkeys"}),
 
     -- Function keys
-    awful.key({ }, "F12", function () awful.util.spawn( "xfce4-terminal --drop-down" ) end,
-        {description = "dropdown terminal" , group = "function keys"}),
+    -- awful.key({ }, "F12", function () awful.util.spawn( "xfce4-terminal --drop-down" ) end,
+    --    {description = "dropdown terminal" , group = "function keys"}),
 
 
     -- super + ... function keys
@@ -397,7 +398,6 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Shift"   }, "m", function() awful.util.spawn( "google-chrome-stable --app=https://music.youtube.com" ) end),
     awful.key({ modkey, "Shift" }, "w", function () awful.util.spawn( "wps" ) end,
         {description = virtualmachine , group = "wps" }),
-
     -- awful.key({ modkey, "Shift"   }, "a", function () awful.util.spawn( "xfce4-appfinder" ) end,
     --     {description = "app launcher", group = "super"}),
     awful.key({ modkey, "Shift"   }, "v", function () awful.util.spawn( "vivaldi-stable" ) end,
@@ -420,8 +420,13 @@ globalkeys = my_table.join(
     -- ctrl + shift + ...
     awful.key({ modkey1, "Shift"  }, "Escape", function () awful.util.spawn( "xfce4-taskmanager" ) end,
         {description = "xfce4-taskmanager" , group = "super" }),
+    awful.key({ modkey1, "Shift"  }, "e", function () awful.util.spawn( "emote" ) end,
+        {description = "emoji picker" , group = "super" }),
     awful.key({ modkey1, "Shift"  }, "k", function () awful.util.spawn( "kdenlive" ) end,
         {description = "kdenlive" , group = "super" }),
+    awful.key({ modkey1, "Shift"   }, "m", function() awful.util.spawn( "mousepad" ) end),
+    awful.key({ modkey1, "Shift"  }, "p", function () awful.util.spawn( "peek" ) end,
+        {description = "peek" , group = "super" }),
     awful.key({ modkey1, "Shift"  }, "r", function () awful.util.spawn( "simplescreenrecorder" ) end,
         {description = "simplescreenrecorder" , group = "super" }),
 
@@ -1349,7 +1354,7 @@ awful.spawn.with_shell("picom -b --config  $HOME/.config/awesome/picom.conf")
 -- awful.spawn.with_shell("xfce4-clipman")
 -- awful.spawn.with_shell("xfce4-battery-plugin")
 --awful.spawn.with_shell("nitrogen --restore")
---awful.spawn.with_shell("")
+awful.spawn.with_shell("xrdb -merge ~/.Xresources")
 
 -- uncomment the below awful.spawns 
 -- and add application you wish to spawn in ""

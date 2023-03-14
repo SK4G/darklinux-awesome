@@ -1,7 +1,14 @@
 #!/bin/bash
-
-echo "Deleting the work folder if one exists"
-[ -d work ] && rm -rf work
+##################################################################################################################
+# Author 	: 	Erik Dubois
+# Website 	: 	https://www.erikdubois.be
+# Website	:	https://www.arcolinux.com
+# Website	:	https://www.arcolinuxd.com
+##################################################################################################################
+#
+#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
+#
+##################################################################################################################
 
 # checking if I have the latest files from github
 echo "Checking for newer files online first"
@@ -25,7 +32,6 @@ git commit -m "$input"
 
 git push -u origin master
 
-
 echo "################################################################"
 echo "###################    Git Push Done      ######################"
 echo "################################################################"
@@ -35,4 +41,4 @@ echo "###############      Building PKGBUILD      ####################"
 echo "################################################################"
 pkgname=$(basename "$PWD")
 cd /mnt/TEAM-1TB/darklinux/darklinux-pkgbuild/$pkgname-git
-sh makepkg-v1.sh
+sh makepkg-v3.sh
