@@ -426,8 +426,8 @@ globalkeys = my_table.join(
     awful.key({ modkey1, "Shift"  }, "k", function () awful.util.spawn( "kdenlive" ) end,
         {description = "kdenlive" , group = "super" }),
     awful.key({ modkey1, "Shift"   }, "m", function() awful.util.spawn( "mousepad" ) end),
-    awful.key({ modkey1, "Shift"  }, "p", function () awful.util.spawn( "peek" ) end,
-        {description = "peek" , group = "super" }),
+    -- awful.key({ modkey1, "Shift"  }, "p", function () awful.util.spawn( "peek" ) end,
+    --     {description = "peek" , group = "super" }),
     awful.key({ modkey1, "Shift"  }, "r", function () awful.util.spawn( "simplescreenrecorder" ) end,
         {description = "simplescreenrecorder" , group = "super" }),
 
