@@ -735,7 +735,11 @@ globalkeys = my_table.join(
     --           {description = "-10%", group = "hotkeys"}),
     awful.key({ }, "XF86MonBrightnessUp", function () os.execute("brightnessctl set +10%") end,
               {description = "+10%", group = "hotkeys"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
+    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("brightnessctl set 10%-") end,
+              {description = "-10%", group = "hotkeys"}),
+    awful.key({ altkey }, "XF86MonBrightnessUp", function () os.execute("brightnessctl --device='chromeos::kbd_backlight' set +25%") end,
+              {description = "+10%", group = "hotkeys"}),
+    awful.key({ altkey }, "XF86MonBrightnessDown", function () os.execute("brightnessctl --device='chromeos::kbd_backlight' set 25%-") end,
               {description = "-10%", group = "hotkeys"}),
 
     -- ALSA volume control
